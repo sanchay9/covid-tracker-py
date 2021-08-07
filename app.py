@@ -1,5 +1,6 @@
 import requests
 import bs4
+import webbrowser
 
 from tkinter import *
 
@@ -45,6 +46,9 @@ def reloadWindow():
     headerLabel['text'] = "Showing World Wide Stats"
     country_input.set('')
     dataLabel['text'] = getWorldData()
+
+def callBack(url):
+    webbrowser.open_new(url)
 
 def closeWindow():
     window.destroy()
@@ -102,5 +106,21 @@ exitButton.pack()
 
 emptyLine = Label(window, text = "\n", bg = "#2E3440")
 emptyLine.pack()
+
+github = Label(window, text = " Github  ", bg = "#2E3440", fg = "#EBCB8B", cursor = "hand2", font = ("FiraCode Nerd Font Mono", 14, "bold"))
+github.pack(side = RIGHT)
+github.bind("<Button-1>", lambda e: callBack("https://github.com/sanchay9/covid-tracker-py"))
+
+github = Label(window, text = "", bg = "#2E3440", fg = "#EBCB8B", cursor = "hand2", font = ("FiraCode Nerd Font Mono", 32))
+github.pack(side = RIGHT)
+github.bind("<Button-1>", lambda e: callBack("https://github.com/sanchay9/covid-tracker-py"))
+
+github = Label(window, text = " Source  ", bg = "#2E3440", fg = "#EBCB8B", cursor = "hand2", font = ("FiraCode Nerd Font Mono", 14, "bold"))
+github.pack(side = RIGHT)
+github.bind("<Button-1>", lambda e: callBack("https://www.worldometers.info/coronavirus/"))
+
+github = Label(window, text = "", bg = "#2E3440", fg = "#EBCB8B", cursor = "hand2", font = ("FiraCode Nerd Font Mono", 32))
+github.pack(side = RIGHT)
+github.bind("<Button-1>", lambda e: callBack("https://www.worldometers.info/coronavirus/"))
 
 window.mainloop()
