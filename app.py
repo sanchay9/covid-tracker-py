@@ -46,6 +46,10 @@ def reloadWindow():
     country_input.set('')
     dataLabel['text'] = getWorldData()
 
+def closeWindow():
+    window.destroy()
+    exit()
+
 
 
 
@@ -89,6 +93,12 @@ emptyLine.pack()
 
 dataLabel = Label(window, text = getWorldData(), font = ("FiraCode Nerd Font Mono", 20, "bold"), bg = "#D8DEE9", fg = "#2E3440")
 dataLabel.pack()
+
+emptyLine = Label(window, text = "\n", bg = "#2E3440")
+emptyLine.pack()
+
+exitButton = Button(window, text = "Click to Exit", font = ("FiraCode Nerd Font Mono", 18, "bold"), bg = "#BF616A", fg = "#D8DEE9", command = closeWindow)
+exitButton.pack()
 
 emptyLine = Label(window, text = "\n", bg = "#2E3440")
 emptyLine.pack()
